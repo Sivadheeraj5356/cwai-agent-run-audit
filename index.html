@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Agent Run Audit</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <h1>Agent Run Audit</h1>
+    <p class="sub">Multi-agent systems fail quietly: a tool loops, an error gets swallowed, retrieval ships without an eval, a final answer drifts from what the tools actually returned. Paste a recorded agent trace, one step per line as <code>type | detail</code>, and the audit flags potential issues using heuristics - a single-trace review, not a production monitor.</p>
+  </header>
+
+  <section class="card">
+    <label class="lbl" for="trace">Agent trace, one step per line: <code>type | detail</code></label>
+    <textarea id="trace" rows="10" spellcheck="false">tool:retrieve | transformer capacity and grid interconnection documents
+tool:search | ERCOT queue statistics 2026
+tool:search | ERCOT queue statistics 2026
+tool:search | ERCOT queue statistics 2026
+tool:fetch | error: timeout after 30s on queue export
+final:answer | Quantum networking is transforming power grids worldwide.</textarea>
+
+    <button id="run" type="button">Run audit</button>
+  </section>
+
+  <section id="results" class="hidden">
+    <div class="card">
+      <h2>Findings <span id="stats" class="stats"></span></h2>
+      <ul id="findings" class="findings"></ul>
+    </div>
+  </section>
+
+  <footer>Plain HTML, CSS and JavaScript. No external services, build step or secrets. Tests: <code>npm test</code>.</footer>
+</main>
+<script src="audit.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
