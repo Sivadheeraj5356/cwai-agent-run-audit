@@ -1,0 +1,7 @@
+{
+  "name": "cwai-agent-run-audit",
+  "version": "1.0.0",
+  "description": "Heuristic audit of a recorded agent trace: tool loops, swallowed errors, missing eval steps, possibly ungrounded final answers",
+  "scripts": { "test": "node --test" },
+  "license": "MIT"
+}
